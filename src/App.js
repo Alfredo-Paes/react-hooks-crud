@@ -24,21 +24,11 @@ const App = () => {
   const [ editing, setEditing ] = useState(false);
   const [ currentUser, setCurrentUser ] = useState(initialFormState);
 
-  /**
-   * Como não estamos usando uma API e um banco de dados reais, 
-   * que provavelmente teriam um ID de incremento automático, 
-   * incrementarei o ID do novo usuário manualmente. 
-   * Esta função pegará um userobjeto como parâmetro e o adicionará ao usersarray de objetos. 
-   * O ...users código garante que todos os usuários anteriores permaneçam na matriz.
-  */
   const addUser = (user) => {
     user.id = users.length + 1
     setUsers([...users, user])
   };
 
-  /**
-   * Ao criar "deleteUser", o ID do usuário será filtrado para fora da matriz usuário 
-   */
   const deleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
   };
@@ -51,10 +41,7 @@ const App = () => {
       email: user.email 
     });
   };
-  /**
-   *Usaremos uma operação ternária para verificar se o editingestado é verdadeiro ou não. 
-   *Se verdadeiro, mostra o formulário de edição. Se for falso, mostra o formulário de adição.
-   */
+
   const updateUser = (id, updateUser) => {
     setEditing(false);
     setUsers(users.map((user) => (user.id === id ? updateUser : user)));

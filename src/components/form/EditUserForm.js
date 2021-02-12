@@ -8,11 +8,7 @@ const EditUserForm = (props) => {
         const { name, value } = event.target;
         setUser({...user, [name]: value});
     };
-    /**
-     * Com o "useEffect", é possível acionar outro componente, mesmo que,
-     * o componente "EditUserForm" não esteja fechado.
-     * obs: Paraficar mais claro, experimente comentar esse "useEffect".
-     */
+
     useEffect(() => {
         setUser(props.currentUser);
     }, [props]);
